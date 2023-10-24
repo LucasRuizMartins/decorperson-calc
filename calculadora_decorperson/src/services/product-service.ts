@@ -18,9 +18,7 @@ export function calculateTotalValue(products: ProductDTO[]) {
   return totalValue;
 }
 
-export function increaseQtd(product : ProductDTO) {
-  product.quantity ++
-}
+ 
 
 const products: ProductDTO[] = [
   {

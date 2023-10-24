@@ -35,3 +35,21 @@ export function increaseItem(productId: number) {
     calcRepository.save(calc);
   }
 }
+
+export function decreaseItem(productId: number) {
+  const calc = calcRepository.get();
+  const item = calc.items.find((x) => x.productId === productId);
+
+  if (item) {
+    if (item.quantity > 0) {
+      item.quantity--;
+    }
+    calcRepository.save(calc);
+  }
+}
+
+export function getProductQtd(productId: number) {
+  const calc = calcRepository.get();
+  const item = calc.items.find((x) => x.productId === productId);
+  return item?.quantity;
+}

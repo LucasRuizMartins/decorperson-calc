@@ -12,13 +12,15 @@ type Props = {
 
 export function ProductCard({ product, onCalc }: Props) {
   const [totalPrice, setTotalPrice] = useState(0);
-  const [productQtd, setProductQtd] = useState(0);
+  const [productQtd, setProductQtd] = useState(
+    calcService.getProductQtd(product.id) || 0
+  );
   const [calc, setCalc] = useState<OrderDTO>(calcService.getCalc);
 
   useEffect(() => {
     const newCalc = calcService.getCalc();
     setCalc(newCalc);
-
+    onCalc(newCalc);
     setTotalPrice(productQtd * product.price);
   }, [productQtd]);
 
@@ -31,12 +33,17 @@ export function ProductCard({ product, onCalc }: Props) {
     setProductQtd(productQtd + 1);
     setCalc(newCalc);
     calcService.addProduct(product);
-
     onCalc(newCalc);
   }
 
   function handleDecreaseProduct(event: any) {
-    setProductQtd(productQtd - 1);
+    const newCalc = calcService.getCalc();
+    if (productQtd >= 1) {
+      setProductQtd(productQtd - 1);
+    }
+    setCalc(newCalc);
+    calcService.decreaseItem(product.id);
+    onCalc(newCalc);
   }
 
   return (
@@ -47,7 +54,7 @@ export function ProductCard({ product, onCalc }: Props) {
           unidade <br />
           R$ {product?.price.toFixed(2)}
         </p>
-        {/* Removemos os dois pontos (:) */}
+        {}
         <div className="quantity-container">
           <div
             className="item-quantity-btn"

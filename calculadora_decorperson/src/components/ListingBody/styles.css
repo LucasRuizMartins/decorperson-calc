@@ -6,3 +6,11 @@
     width: 100%;   
     height: 900px;
 }
+
+.sum_prod { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  
+}

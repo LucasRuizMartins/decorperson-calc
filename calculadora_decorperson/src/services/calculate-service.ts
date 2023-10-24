@@ -36,6 +36,24 @@ export function increaseItem(productId: number) {
   }
 }
 
+export function selectItemQtd(product: ProductDTO, newQuantity: number) {
+  const calc = calcRepository.get();
+  const item = calc.items.find((x) => x.productId === product.id);
+  if (item) {
+    item.quantity = newQuantity;
+  } else {
+    const newItem = new OrderItemDTO(
+      product.id,
+      newQuantity,
+      product.name,
+      product.price
+    );
+    calc.items.push(newItem);
+  }
+
+  calcRepository.save(calc);
+}
+
 export function decreaseItem(productId: number) {
   const calc = calcRepository.get();
   const item = calc.items.find((x) => x.productId === productId);

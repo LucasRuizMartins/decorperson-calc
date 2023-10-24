@@ -20,12 +20,17 @@ export function ProductCard({ product, onCalc }: Props) {
   useEffect(() => {
     const newCalc = calcService.getCalc();
     setCalc(newCalc);
-    onCalc(newCalc);
     setTotalPrice(productQtd * product.price);
+    onCalc(newCalc);
   }, [productQtd]);
 
   function handleInputChange(event: any) {
-    setProductQtd(Number(event.target.value));
+    const newCalc = calcService.getCalc();
+    const newQtd = Number(event.target.value);
+    setProductQtd(newQtd);
+    setCalc(newCalc);
+    calcService.selectItemQtd(product,  Number(event.target.value));
+    onCalc(newCalc);
   }
 
   function handleIncreaseProduct(event: any) {
@@ -35,7 +40,6 @@ export function ProductCard({ product, onCalc }: Props) {
     calcService.addProduct(product);
     onCalc(newCalc);
   }
-
   function handleDecreaseProduct(event: any) {
     const newCalc = calcService.getCalc();
     if (productQtd >= 1) {
@@ -49,7 +53,9 @@ export function ProductCard({ product, onCalc }: Props) {
   return (
     <>
       <div className="product-card">
-        <div className="product.img"><img src={product.imgUrl} alt="product_img" /></div>
+        <div>
+          <img className="product_img" src={product.imgUrl} alt="product_img" />
+        </div>
         <p className="product-name">{product?.name}</p>
         <p className="product-price">
           unidade <br />
@@ -79,7 +85,7 @@ export function ProductCard({ product, onCalc }: Props) {
         </div>
         <p className="product-total-price">
           total <br />
-          R$ {totalPrice.toFixed(2)}
+          {totalPrice.toFixed(2)}
         </p>
       </div>
     </>

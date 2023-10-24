@@ -41,12 +41,11 @@
 
 .qtd-input {
   text-align: center;
-  width: 20px;
+  width: 30px;
 }
 
 .quantity-container {
   display: flex;
-
 }
 
 .item-quantity-btn {
@@ -55,4 +54,9 @@
   margin-right: 5px;
   font-weight: 700;
   color: var(--dsf-color-font-quintenary);
+}
+
+.product_img {
+  margin-left: 10px;
+  width: 80px;
 }

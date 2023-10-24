@@ -1,4 +1,3 @@
- 
 export class OrderDTO {
   id?: number;
   items: OrderItemDTO[] = [];
@@ -7,11 +6,9 @@ export class OrderDTO {
     let sum = 0;
     this.items.forEach((item) => {
       sum += item.subTotal;
-      console.log("SUM : " + sum)
     });
 
     return sum;
-
   }
 }
 

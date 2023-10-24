@@ -1,0 +1,36 @@
+.filter-card {
+  background-color: var(--dsf-color-card-bg);
+  width: 100%;
+  border-radius: 5px;
+  height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.filter-btn {
+  font-size: 16px;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: var(--dsf-color-bg-secondary);
+  font-weight: 400;
+  color: var(--dsf-color-font-secondary);
+  cursor: pointer;
+}
+
+.input-filter {
+  padding: 10px;
+  height: 40px;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.input-filter::placeholder {
+  font-size: 16px;
+  color: var(--dsf-color-font-tertiary);
+}

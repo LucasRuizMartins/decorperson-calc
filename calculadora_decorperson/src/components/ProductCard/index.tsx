@@ -49,6 +49,7 @@ export function ProductCard({ product, onCalc }: Props) {
   return (
     <>
       <div className="product-card">
+        <div className="product.img"><img src={product.imgUrl} alt="product_img" /></div>
         <p className="product-name">{product?.name}</p>
         <p className="product-price">
           unidade <br />

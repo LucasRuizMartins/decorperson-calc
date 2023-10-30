@@ -4,6 +4,7 @@ import { ProductDTO } from "../../models/product";
 import { ProductCard } from "../ProductCard";
 import * as productService from "../../services/product-service";
 import * as calcService from "../../services/calculate-service";
+import ProjectCard from "../ProjectCard";
 
 type QueryParams = {
   min: number;
@@ -34,7 +35,18 @@ export function ListingBody() {
           <span> Valor em matéria prima R$ : {calc.total.toFixed(2)} </span>
         </div>
       </div>
+
       <div className="dsf-container">
+        <div className="center-title">
+          <h2>Projeto</h2>
+        </div>
+
+        <ProjectCard totalProducts={calc.total} />
+
+        <div className="center-title">
+          <h2>Matéria Prima</h2>
+        </div>
+
         <div className="card-list">
           {product.map((product) => (
             <ProductCard

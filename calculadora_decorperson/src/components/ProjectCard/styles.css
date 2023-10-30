@@ -1,0 +1,54 @@
+.project-area {
+  display: flex;
+  border: solid 1px #000;
+  border-radius: 10px;
+  background-color: #fff;
+  height: 150px;
+  margin-bottom: 50px;
+}
+.ambient-container {
+  border-radius: 8px 0 0 8px;
+
+  width: 350px;
+}
+
+.drop-box {
+  text-align: center;
+  width: 50px;
+}
+
+.complex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 300px;
+  height: 150px;
+}
+
+label[for="compValue"] {
+}
+
+.project-container {
+  margin-left: 10px;
+}
+
+.project-label {
+  border: solid 2px #000;
+}
+.enviroments-values-input {
+  display: flex;
+}
+.icon {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.enviroment-card {
+  border: solid 1px var(--var-bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

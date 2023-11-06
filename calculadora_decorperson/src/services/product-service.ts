@@ -211,19 +211,19 @@ const products: ProductDTO[] = [
     imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/Monta%20e%20Fixa.png?raw=true",
   },
   {
-    id: 26,
+    id: 27,
     name: "Tubo de aço industrial 20x20",
     price: 41.66,
     imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tubo_aco.png?raw=true",
   },
   {
-    id: 27,
+    id: 28,
     name: "Tubo de Aço Industrial 60 X 60 X 2,0",
     price: 197.46,
     imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tubo_aco.png?raw=true",
   },
   {
-    id: 28,
+    id: 29,
     name: "Tinta preta ",
     price: 207.0,
     imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tinta_preta.png?raw=true",

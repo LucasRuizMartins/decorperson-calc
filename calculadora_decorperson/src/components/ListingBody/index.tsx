@@ -18,8 +18,6 @@ export function ListingBody() {
 
   const [calc, setCalc] = useState(calcService.getCalc());
 
-
-
   function handleUpdateCalc(newCalc: any) {
     setCalc(newCalc);
   }
@@ -34,8 +32,8 @@ export function ListingBody() {
     setProductFilter(value);
   }
 
-  function handleClear(event : any) {
-calcService.clear()
+  function handleClear(event: any) {
+    calcService.clear();
   }
 
   return (
@@ -59,7 +57,9 @@ calcService.clear()
               placeholder="digite o nome do produto desejado"
               onChange={handleChange}
             />
-            <button className="btn-clear" onClick={handleClear}>Limpar</button>
+            <button className="btn-clear" onClick={handleClear}>
+              Limpar
+            </button>
           </form>
         </div>
 

@@ -18,6 +18,17 @@ export function calculateTotalValue(products: ProductDTO[]) {
   return totalValue;
 }
 
+export function findProductByName(name: string) {
+  const productsList = products
+    .slice()
+    .sort((a, b) => a.name.toLowerCase().localeCompare(b.name))
+    .filter((product) => product.name.toLowerCase().includes(name.toLowerCase()));
+
+  return productsList;
+}
+
+
+
 const products: ProductDTO[] = [
   {
     id: 1,
@@ -191,30 +202,30 @@ const products: ProductDTO[] = [
     id: 25,
     name: "Monta e Fixa PL600",
     price: 55.71,
-    imgUrl: "",
+    imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/Monta%20e%20Fixa.png?raw=true",
   },
   {
     id: 26,
     name: "Selante Monta e Fixa Branco",
     price: 16.65,
-    imgUrl: "",
+    imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/Monta%20e%20Fixa.png?raw=true",
   },
   {
     id: 26,
     name: "Tubo de aço industrial 20x20",
     price: 41.66,
-    imgUrl: "",
+    imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tubo_aco.png?raw=true",
   },
   {
     id: 27,
     name: "Tubo de Aço Industrial 60 X 60 X 2,0",
     price: 197.46,
-    imgUrl: "",
+    imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tubo_aco.png?raw=true",
   },
   {
     id: 28,
     name: "Tinta preta ",
     price: 207.0,
-    imgUrl: "",
-  },
-];
+    imgUrl: "https://github.com/LucasRuizMartins/decorperson-calc/blob/main/calculadora_decorperson/src/assets/tinta_preta.png?raw=true",
+  }, 
+  ];

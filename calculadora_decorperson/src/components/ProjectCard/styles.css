@@ -1,54 +1,55 @@
 .project-area {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 70px;
+  padding-right: 70px;
   border: solid 1px #000;
   border-radius: 10px;
   background-color: #fff;
   height: 150px;
   margin-bottom: 50px;
-}
-.ambient-container {
-  border-radius: 8px 0 0 8px;
-
-  width: 350px;
+  height: 340px;
 }
 
-.drop-box {
+.values-container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+#enviroment-total-price {
+ 
+}
+
+#complex-total-price {
+
+}
+
+#gross-profit-value {
+
+  
+}
+
+.info-label{
+  margin: 12px;
+}
+
+.input-info { 
+  margin-left: 20px;
+  border-radius: 4px;
+  margin-bottom: 10px;
   text-align: center;
-  width: 50px;
+  width: 70px;
+  height: 25px;
+
+  border: solid 1px #000;
 }
 
-.complex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.dflex{display: flex;
+justify-content: space-between;}
 
-  width: 300px;
-  height: 150px;
-}
-
-label[for="compValue"] {
-}
-
-.project-container {
-  margin-left: 10px;
-}
-
-.project-label {
-  border: solid 2px #000;
-}
-.enviroments-values-input {
-  display: flex;
-}
-.icon {
-  margin: 5px;
-  width: 30px;
-  height: 30px;
-}
-
-.enviroment-card {
-  border: solid 1px var(--var-bg-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.red-value { 
+  color: #f00 
 }

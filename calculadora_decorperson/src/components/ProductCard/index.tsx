@@ -11,7 +11,9 @@ type Props = {
 };
 
 export function ProductCard({ product, onCalc }: Props) {
+
   const [totalPrice, setTotalPrice] = useState(0);
+
   const [productQtd, setProductQtd] = useState(
     calcService.getProductQtd(product.id) || 0
   );

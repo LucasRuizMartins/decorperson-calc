@@ -14,7 +14,6 @@ type enviromentValue = {
 };
 
 export default function ProjectCard({ totalProducts }: Props) {
-
   const [totalEnviromentPrice, setTotalEnvirmentoPrice] = useState(0);
   const [factorComplexWork, setFactorComplexWork] = useState(2.5);
   const [discount, setDiscount] = useState(0);
@@ -68,154 +67,212 @@ export default function ProjectCard({ totalProducts }: Props) {
   );
   return (
     <div className="project-area">
-      <div className="ambient-container">
-        <div className="enviroment-card">
-          <p className="">Ambientes</p>
-
-          <input
-            className="drop-box"
-            name="enviroments"
-            placeholder="Ambientes"
-            type="text"
-            value={enviromentValue.enviroments || ""}
-            onChange={handleInputChange}
-          />
+      <div>
+        <div className="dflex">
+          <div>
+            <span className="">Ambientes :</span>
+          </div>
+          <div>
+            <input
+              className="input-info"
+              name="enviroments"
+              placeholder="Ambientes"
+              type="text"
+              value={enviromentValue.enviroments || ""}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
 
-        <div className="enviroment-card ">
-          <p className="">Medição : </p>
-
-          <input
-            className="drop-box"
-            name="medition"
-            placeholder="medição"
-            type="text"
-            value={enviromentValue.medition || ""}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="enviroment-card">
-          <label htmlFor="compValue">Complexidade :</label>
-          <select
-            className="drop-box"
-            id="complexFactor"
-            name="complexFactor"
-            value={enviromentValue.complexFactor}
-            onChange={handleInputChange}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-
-          <p>{"PREÇO TOTAL : " + totalEnviromentPrice.toFixed(2)}</p>
-        </div>
-      </div>
-
-      <div className="complex-container">
-        <label htmlFor="complexValue">Complexidade Mão de obra :</label>
-
-        <select
-          className="drop-box"
-          id="factorComplexWork"
-          name="factorComplexWork"
-          value={factorComplexWork}
-          onChange={handleInputTaxChange}
-        >
-          <option value="2.5">2.5</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <label htmlFor="discount"> Desconto :</label>
-        <div>
-          <select
-            className="drop-box"
-            id="discount"
-            name="discount"
-            value={discount}
-            onChange={handleInputDiscountChange}
-          >
-            <option value="0">0%</option>
-            <option value="5">5%</option>
-            <option value="10">10%</option>
-            <option value="15">15%</option>
-            <option value="20">20%</option>
-          </select>
-          <p>
+        <div className="dflex">
+          <div>
             {" "}
-            valor da venda:
-            <br />
-            <div>{totalSalePrice.toFixed(2)}</div>
-          </p>
+            <span className="">Medição : </span>
+          </div>
+          <div>
+            {" "}
+            <input
+              className="input-info"
+              name="medition"
+              placeholder="medição"
+              type="text"
+              value={enviromentValue.medition || ""}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            <label htmlFor="compValue">Complexidade :</label>
+          </div>
+          <div>
+            <select
+              className="input-info"
+              id="complexFactor"
+              name="complexFactor"
+              value={enviromentValue.complexFactor}
+              onChange={handleInputChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            {" "}
+            <label htmlFor="complexValue">Complexidade da Mão de obra :</label>
+          </div>
+          <div>
+            {" "}
+            <select
+              className="input-info"
+              id="factorComplexWork"
+              name="factorComplexWork"
+              value={factorComplexWork}
+              onChange={handleInputTaxChange}
+            >
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            <label htmlFor="discount"> Desconto :</label>
+          </div>
+          <div>
+            <select
+              className="input-info"
+              id="discount"
+              name="discount"
+              value={discount}
+              onChange={handleInputDiscountChange}
+            >
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            {" "}
+            <span>Aliquota : </span>
+          </div>
+          <div>
+            <select
+              className="input-info"
+              id="aliquota"
+              name="aliquota"
+              value={aliquota}
+              onChange={handleInputAliquotaChange}
+            >
+              <option value="0">0%</option>
+              <option value="7">7%</option>
+              <option value="15">15%</option>
+              <option value="22.5">22.5%</option>
+              <option value="27.5">27.5%</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            <span>Comissão do Arquiteto :</span>
+          </div>
+          <div>
+            <select
+              className="input-info"
+              id="architectComission"
+              name="architectComission"
+              value={architectComission}
+              onChange={handleInputArchitectChange}
+            >
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="dflex">
+          <div>
+            <span>Comissão do Vendedor :</span>
+          </div>
+          <div>
+            <select
+              className="input-info"
+              id="sellerComission"
+              name="sellerComission"
+              value={sellerComission}
+              onChange={handleInputSellerChange}
+            >
+              <option value="1">1%</option>
+              <option value="2">2%</option>
+              <option value="3">3%</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      <div className="complex-container">
-        <label htmlFor="aliquotaValue">
-          Aliquota :{" "}
-          {projectService.getAliquota(totalProducts, aliquota).toFixed(2)}
+      <div className="values-container">
+        <p id="enviroment-total-price" className="info-label">
+          {`Valor dos ambientes  R$ : `}
+          {` ${totalEnviromentPrice.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})} `}
+        </p>
+
+        <span id="complex-total-price" className="info-label">
+          Valor da venda - R$ : {totalSalePrice.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+        </span>
+
+        <p id="gross-profit-value" className="info-label">
+          {"Lucro Bruto  R$ : "}
+          {projectService
+            .getGrossProfit(
+              totalSalePrice,
+              totalProducts,
+              aliquota,
+              architectComission,
+              sellerComission
+            )
+            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+        </p>
+        <span className="info-label red-value">
+          {` Total em materia Prima  R$ : ${totalProducts.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}`}
+        </span>
+
+        <label htmlFor="aliquotaValue" className="info-label red-value">
+          {"  Aliquota  R$ : "}
+          {projectService.getAliquota(totalProducts, aliquota).toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
         </label>
 
-        <select
-          className="drop-box"
-          id="aliquota"
-          name="aliquota"
-          value={aliquota}
-          onChange={handleInputAliquotaChange}
+        <label
+          htmlFor="architectComissionValue"
+          className="info-label red-value"
         >
-          <option value="0">0%</option>
-          <option value="7">7%</option>
-          <option value="15">15%</option>
-          <option value="22.5">22.5%</option>
-          <option value="27.5">27.5%</option>
-        </select>
-
-        <label htmlFor="architectComissionValue">
-          {" "}
-          Comissão Arquiteto :{" "}
+          {"Comissão Arquiteto  R$ : "}
           {projectService
             .getComission(totalProducts, architectComission)
-            .toFixed(2)}
+            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
         </label>
-        <div>
-          <select
-            className="drop-box"
-            id="architectComission"
-            name="architectComission"
-            value={architectComission}
-            onChange={handleInputArchitectChange}
-          >
-            <option value="0">0%</option>
-            <option value="5">5%</option>
-            <option value="10">10%</option>
-          </select>
-        </div>
 
-        <label htmlFor="sellerComissionValue">
-          {" "}
-          Comissão Vendedor/Projetista :{" "}
+        <label htmlFor="sellerComissionValue" className="info-label red-value">
+          {"  Comissão Vendedor/Projetista  R$ : "}
           {projectService
             .getComission(totalProducts, sellerComission)
-            .toFixed(2)}
+            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
         </label>
-        <div>
-          <select
-            className="drop-box"
-            id="sellerComission"
-            name="sellerComission"
-            value={sellerComission}
-            onChange={handleInputSellerChange}
-          >
-            <option value="1">1%</option>
-            <option value="2">2%</option>
-            <option value="3">3%</option>
-          </select>
-        </div>
-        <p>{projectService.getGrossProfit(totalSalePrice,totalProducts,aliquota ,architectComission, sellerComission).toFixed(2)}</p>
       </div>
     </div>
   );
 }
-//totalSalePrice,totalProducts,aliquota,architectComission,sellerComission

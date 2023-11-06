@@ -71,3 +71,8 @@ export function getProductQtd(productId: number) {
   const item = calc.items.find((x) => x.productId === productId);
   return item?.quantity;
 }
+
+
+export function clear() {
+  calcRepository.clear()
+}

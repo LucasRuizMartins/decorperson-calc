@@ -18,3 +18,7 @@ export function get(): OrderDTO {
 
   return calc
 }
+
+export function clear() {
+  localStorage.setItem(CALC_KEY, '{"items" :[]}');
+}

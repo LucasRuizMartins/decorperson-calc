@@ -1,0 +1,37 @@
+.furniture-img {
+  width: 150px;
+  height: 150px;
+}
+
+.furniture-card {
+  display: flex;
+  align-items: center;
+  border: 2px solid #000;
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.furniture-info {
+  font-family: "Figtree";
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.add-furniture {
+  cursor: pointer;
+  color: var(--dsf-color-font-quintenary);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  border: 1px #000 solid;
+  width: 100px;
+  height: 30px;
+
+
+
+
+}

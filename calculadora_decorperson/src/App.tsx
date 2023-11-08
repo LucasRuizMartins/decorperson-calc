@@ -1,20 +1,19 @@
-import { useState } from "react";
-import "./App.css";
-import { Header } from "./components/Header";
-import { ListingBody } from "./components/ListingBody";
-import { ContextProductCount } from "./services/context-product";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Calculator from "./routes/Calculator";
+import PowerPoint from "./routes/PowerPoint";
+import { FurnituresBody } from "./routes/ProjectArea/FurnituresBody";
 
 function App() {
-
-
   return (
-    <>
-
-
-        <Header></Header>
-        <ListingBody></ListingBody>
-
-    </>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Calculator />} />
+        <Route path="/calc" element={<Calculator />} />
+        <Route path="/ppt" element={<PowerPoint mes={"NOV"} />} />
+        <Route path="/fur" element={<FurnituresBody />} />
+      </Routes>
+    </Router>
   );
 }
 

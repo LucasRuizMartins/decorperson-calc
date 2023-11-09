@@ -1,0 +1,30 @@
+.info-box-page-three {
+  margin-left: 10px;
+  color: #000;
+  position: absolute;
+  top: 1720px;
+  left: 170px;
+  width: 550px;
+}
+
+.furniture-title {
+  margin-top: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.furniture-info-pg-3 {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.budget-title {
+     font-size: 20px;
+    font-weight: 700;
+
+}
+
+.background-page-three{
+  margin-top: 20px
+  height: 120%;
+}

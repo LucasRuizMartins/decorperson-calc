@@ -5,6 +5,8 @@ import { ProductCard } from "../ProductCard";
 import * as productService from "../../services/product-service";
 import * as calcService from "../../services/calculate-service";
 import ProjectCard from "../ProjectCard";
+ 
+ 
 
 type QueryParams = {
   min: number;
@@ -12,6 +14,10 @@ type QueryParams = {
 };
 
 export function ListingBody() {
+
+
+
+
   const [productFilter, setProductFilter] = useState("");
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
@@ -41,6 +47,7 @@ export function ListingBody() {
       <div className="dsf-container">
         <div className="center-title">
           <h2>Projeto</h2>
+      
         </div>
 
         <ProjectCard totalProducts={calc.total} />

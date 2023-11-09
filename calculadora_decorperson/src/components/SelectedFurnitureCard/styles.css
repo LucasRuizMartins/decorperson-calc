@@ -1,12 +1,11 @@
-.furniture-img {
-  width: 150px;
-  height: 150px;
+.selected-img {
+  width: 100px;
+  height: 100px;
 }
 
-.furniture-card {
+.selected-furniture-card {
   display: flex;
   align-items: center;
-  border: 2px solid #000;
   width: 50%;
   height: 200px;
   margin: 0 auto;
@@ -14,23 +13,24 @@
   border-radius: 8px;
 }
 
-.furniture-info {
+.selected-info {
+  width: 250px;
   font-family: "Figtree";
   margin-top: 5px;
   font-size: 15px;
 }
 
-.add-furniture {
-  margin-top: 150px;
-  margin-right: 10px;
+.remove-furniture {
+  
+  margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 10px;
   cursor: pointer;
-  background-color: var(--dsf-color-font-quintenary);
+  background-color: var(  --dsf-color-bg-primary );
   border-radius: 8px;
-  border: 1px #000 solid;
+  border: 1px ed solid;
   width: 100px;
   height: 30px;
 }

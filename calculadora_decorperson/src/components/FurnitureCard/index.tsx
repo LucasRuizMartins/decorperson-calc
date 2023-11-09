@@ -6,15 +6,23 @@ import { ProjectDTO } from "../../models/project";
 
 type Props = {
   furniture: FurnitureDTO;
+  onNewProject: Function;
 };
 
-export function FurnitureCard({ furniture }: Props) {
+export function FurnitureCard({ furniture, onNewProject }: Props) {
+  
   const [proj, setProj] = useState<ProjectDTO>(projService.getProj());
+
+  useEffect(() => {
+    const newProj = projService.getProj();
+    onNewProject(newProj);
+  }, [proj]);
 
   function handleAddFurniture(event: any) {
     const newProj = projService.getProj();
-    setProj(newProj);
     projService.addFurniture(furniture);
+    setProj(newProj);
+    onNewProject(newProj);
   }
 
   return (

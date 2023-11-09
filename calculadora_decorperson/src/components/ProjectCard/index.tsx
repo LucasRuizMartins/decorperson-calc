@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./styles.css";
-import homeIcon from "../../assets/home.png";
-import metricIcon from "../../assets/medicao.png";
 import * as projectService from "../../services/project-service";
+import { ContextCalcValue } from "../../services/context-calc";
+
 type Props = {
   totalProducts: number;
 };
@@ -14,12 +14,16 @@ type enviromentValue = {
 };
 
 export default function ProjectCard({ totalProducts }: Props) {
+
   const [totalEnviromentPrice, setTotalEnvirmentoPrice] = useState(0);
   const [factorComplexWork, setFactorComplexWork] = useState(2.5);
   const [discount, setDiscount] = useState(0);
   const [aliquota, setAliquota] = useState(0);
   const [architectComission, setArchitectComission] = useState(0);
   const [sellerComission, setSellerComission] = useState(0);
+
+  const {contextCalcValue, setContextCalcValue } = useContext(ContextCalcValue);
+
 
   const [enviromentValue, setEnvironmentsValue] = useState<enviromentValue>({
     enviroments: 1,
@@ -28,11 +32,16 @@ export default function ProjectCard({ totalProducts }: Props) {
   });
 
   useEffect(() => {
+   
     const enviromentsQtd = enviromentValue.enviroments * 150.0;
     const complexF = enviromentValue.complexFactor;
     const medition = enviromentValue.medition * 70.0;
-    setTotalEnvirmentoPrice(enviromentsQtd * Number(complexF) + medition);
+    setTotalEnvirmentoPrice(enviromentsQtd * Number(complexF) + medition); 
+    setContextCalcValue(totalSalePrice)
   }, [enviromentValue]);
+  
+ 
+  
 
   function handleInputChange(event: any) {
     const value = event.target.value;
@@ -64,13 +73,14 @@ export default function ProjectCard({ totalProducts }: Props) {
     totalProducts,
     Number(factorComplexWork),
     Number(discount)
+   
   );
   return (
     <div className="project-area">
       <div>
         <div className="dflex">
           <div>
-            <span className="">Ambientes :</span>
+            <span className="">Ambientes : {contextCalcValue} </span>
           </div>
           <div>
             <input

@@ -7,6 +7,7 @@ export class ProjectDTO {
 }
 
 export class ProjectItemDTO {
+
   constructor(
     public furnitureId: number,
     public name: string,

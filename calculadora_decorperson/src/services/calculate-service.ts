@@ -67,9 +67,11 @@ export function decreaseItem(productId: number) {
 }
 
 export function getProductQtd(productId: number) {
+  
   const calc = calcRepository.get();
   const item = calc.items.find((x) => x.productId === productId);
   return item?.quantity;
+
 }
 
 

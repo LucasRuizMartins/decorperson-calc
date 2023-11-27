@@ -1,13 +1,17 @@
-import pageTwo from'../../../assets/page-2.png'
+import "./styles.css";
+import pageTwo from "../../../assets/page-2.png";
 
+type Props = {
+  name: string;
+};
 
-export default function PageTwo() {
+export default function PageTwo({ name }: Props) {
   return (
     <>
-      <div id="page-two" className="background">
+      <div className="page-two">
         <div className="info-box-page-two">
           <span className="name-proposta">
-            Prezado Eduardo, sua proposta chegou.
+            Prezado {name}, sua proposta chegou.
           </span>
           <br />
 
@@ -18,11 +22,13 @@ export default function PageTwo() {
             </span>
           </div>
         </div>
+
         <div>
-          <img className="background-page-two" src={pageTwo} alt="" />
+          <div>
+            <img className="background-page-two" src={pageTwo} alt="" />
+          </div>
         </div>
       </div>
-    
     </>
   );
 }

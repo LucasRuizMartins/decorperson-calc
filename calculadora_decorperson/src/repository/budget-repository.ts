@@ -8,22 +8,33 @@ export function save(budget: BudgetDTO) {
 
 export function get(): BudgetDTO | null {
   const str = localStorage.getItem(BUDGET_KEY);
+
   if (!str) {
     return null;
   }
 
-  const obj = JSON.parse(str) as BudgetDTO;
+  try {
+    const obj = JSON.parse(str);
 
-   const budget = new BudgetDTO(
-    obj.id,
-    obj.monthYear,
-    obj.clientFirstName,
-    obj.clientName,
-    new Date(obj.date), // Certifique-se de converter a string de data de volta para um objeto Date
-    obj.budgetName,
-    obj.projectTime,
-    obj.totalPrice
-  );
+    if (obj && typeof obj === 'object' && 'id' in obj) {
+      const budget = new BudgetDTO(
+        obj.id,
+        obj.monthYear,
+        obj.clientFirstName,
+        obj.clientName,
+        new Date(obj.date),
+        obj.budgetName,
+        obj.projectTime,
+        obj.totalPrice
+      );
 
-  return budget;
+      return budget;
+    } else {
+      console.error("O objeto retornado não possui uma propriedade 'id' válida.");
+      return null;
+    }
+  } catch (error) {
+    console.error("Erro ao fazer o parse do JSON:", error);
+    return null;
+  }
 }

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "./styles.css";
 import * as projectService from "../../services/project-service";
 import { ContextCalcValue } from "../../services/context-calc";
+import * as budgetService from "../../services/budget-service";
 
 type Props = {
   totalProducts: number;
@@ -13,7 +14,10 @@ type enviromentValue = {
   complexFactor: number;
 };
 
+
 export default function ProjectCard({ totalProducts }: Props) {
+
+
 
   const [totalEnviromentPrice, setTotalEnvirmentoPrice] = useState(0);
   const [factorComplexWork, setFactorComplexWork] = useState(2.5);
@@ -22,8 +26,8 @@ export default function ProjectCard({ totalProducts }: Props) {
   const [architectComission, setArchitectComission] = useState(0);
   const [sellerComission, setSellerComission] = useState(0);
 
-  const {contextCalcValue, setContextCalcValue } = useContext(ContextCalcValue);
-
+  const { contextCalcValue, setContextCalcValue } =
+    useContext(ContextCalcValue);
 
   const [enviromentValue, setEnvironmentsValue] = useState<enviromentValue>({
     enviroments: 1,
@@ -32,16 +36,16 @@ export default function ProjectCard({ totalProducts }: Props) {
   });
 
   useEffect(() => {
-   
+    const bud = budgetService.getBudget();
+
     const enviromentsQtd = enviromentValue.enviroments * 150.0;
     const complexF = enviromentValue.complexFactor;
     const medition = enviromentValue.medition * 70.0;
-    setTotalEnvirmentoPrice(enviromentsQtd * Number(complexF) + medition); 
-    setContextCalcValue(totalSalePrice)
-  }, [enviromentValue]);
-  
- 
-  
+    setTotalEnvirmentoPrice(enviromentsQtd * Number(complexF) + medition);
+    setContextCalcValue(totalSalePrice);
+    bud.totalPrice = totalSalePrice 
+    budgetService.saveBudget(bud)
+  }, [enviromentValue,totalEnviromentPrice,factorComplexWork]);
 
   function handleInputChange(event: any) {
     const value = event.target.value;
@@ -50,7 +54,10 @@ export default function ProjectCard({ totalProducts }: Props) {
   }
 
   function handleInputTaxChange(event: any) {
+  
     setFactorComplexWork(event.target.value);
+ 
+    
   }
 
   function handleInputDiscountChange(event: any) {
@@ -67,20 +74,20 @@ export default function ProjectCard({ totalProducts }: Props) {
 
   function handleInputSellerChange(event: any) {
     setSellerComission(event.target.value);
+    
   }
 
   const totalSalePrice = projectService.getTotalSalePrice(
     totalProducts,
     Number(factorComplexWork),
     Number(discount)
-   
   );
   return (
     <div className="project-area">
       <div>
         <div className="dflex">
           <div>
-            <span className="">Ambientes : {contextCalcValue} </span>
+            <span className="">Ambientes :  </span>
           </div>
           <div>
             <input
@@ -238,11 +245,20 @@ export default function ProjectCard({ totalProducts }: Props) {
       <div className="values-container">
         <p id="enviroment-total-price" className="info-label">
           {`Valor dos ambientes  R$ : `}
-          {` ${totalEnviromentPrice.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})} `}
+          {` ${totalEnviromentPrice.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+          })} `}
         </p>
 
         <span id="complex-total-price" className="info-label">
-          Valor da venda - R$ : {totalSalePrice.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+          Valor da venda - R$ :{" "}
+          {totalSalePrice.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+          })}
         </span>
 
         <p id="gross-profit-value" className="info-label">
@@ -255,15 +271,28 @@ export default function ProjectCard({ totalProducts }: Props) {
               architectComission,
               sellerComission
             )
-            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+            .toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })}
         </p>
         <span className="info-label red-value">
-          {` Total em materia Prima  R$ : ${totalProducts.toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}`}
+          {` Total em materia Prima  R$ : ${totalProducts.toLocaleString(
+            "pt-BR",
+            { style: "currency", currency: "BRL", minimumFractionDigits: 2 }
+          )}`}
         </span>
 
         <label htmlFor="aliquotaValue" className="info-label red-value">
           {"  Aliquota  R$ : "}
-          {projectService.getAliquota(totalProducts, aliquota).toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+          {projectService
+            .getAliquota(totalProducts, aliquota)
+            .toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })}
         </label>
 
         <label
@@ -273,14 +302,22 @@ export default function ProjectCard({ totalProducts }: Props) {
           {"Comissão Arquiteto  R$ : "}
           {projectService
             .getComission(totalProducts, architectComission)
-            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+            .toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })}
         </label>
 
         <label htmlFor="sellerComissionValue" className="info-label red-value">
           {"  Comissão Vendedor/Projetista  R$ : "}
           {projectService
             .getComission(totalProducts, sellerComission)
-            .toLocaleString('pt-BR',{style:'currency',currency: 'BRL', minimumFractionDigits: 2})}
+            .toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })}
         </label>
       </div>
     </div>

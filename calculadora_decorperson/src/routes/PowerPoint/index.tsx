@@ -1,33 +1,44 @@
 import "./styles.css";
 
-import { useContext } from "react";
-import { ContextCalcValue } from "../../services/context-calc";
 import PageTwo from "../../components/PowerPointPages/PageTwo";
 import PageThree from "../../components/PowerPointPages/PageThree";
 import PageOne from "../../components/PowerPointPages/PageOne";
+
+import * as budgetService from "../../services/budget-service";
+import { formatDate } from "../../utils/utils";
 import PageFour from "../../components/PowerPointPages/PageFour";
+import PageFive from "../../components/PowerPointPages/PageFive";
 
 export default function PowerPoint() {
   const quantidade = 1;
-
-  const { contextCalcValue } = useContext(ContextCalcValue);
+  const bud = budgetService.getBudget();
 
   return (
-    <section className="background">
-      <div id="page-one" className="background">
+    <div className="">
+      <div className="page">
         <PageOne />
       </div>
 
-      <div>
-        <PageTwo />
+      <div className="page">
+        <PageTwo name={bud?.clientFirstName} />
       </div>
 
-      <div className="background-page-three-container">
+      <div className="">
         {Array.from({ length: quantidade }, (_, index) => (
-          <PageThree key={index} totalSale={contextCalcValue} />
+          <div key={index} className="page">
+            {}
+            <PageThree />
+          </div>
         ))}
       </div>
-      <PageFour/>
-    </section>
+
+      <div className="page">
+        <PageFour />
+      </div>
+
+      <div className="page">
+        <PageFive />
+      </div>
+    </div>
   );
 }

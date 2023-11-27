@@ -1,10 +1,10 @@
 .info-box-page-three {
-  margin-left: 10px;
   color: #000;
   position: absolute;
-  top: 1720px;
-  left: 170px;
-  width: 550px;
+  top: 2270px;
+  left: 110px;
+  width: 450px;
+  margin-left: 20px;
 }
 
 .furniture-title {
@@ -14,17 +14,49 @@
 }
 
 .furniture-info-pg-3 {
-  margin-left: 10px;
   font-size: 12px;
+  margin-left: 15px;
 }
 
 .budget-title {
-     font-size: 20px;
-    font-weight: 700;
-
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.background-page-three{
-  margin-top: 20px
-  height: 120%;
+.background-pg-3 {
+  margin-top: 145px;
+  width: 100%;
+  height: auto;
 }
+
+.pay-value {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.payment-info-box {
+  position: absolute;
+  top: 2810px;
+  left: 800px;
+
+  width: 300px;
+  height: 300px;
+}
+.payment-text-info {
+  margin-top: 20px;
+}
+
+ .project-time-title {
+  position: absolute;
+  top: 2875px;
+  left: 130px;
+  font-weight: 700;
+ }
+
+ .project-time-info {
+  position: absolute;
+  top: 2905px;
+  left: 150px;
+ }

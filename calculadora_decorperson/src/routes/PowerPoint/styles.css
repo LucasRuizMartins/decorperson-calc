@@ -1,119 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,700;1,300&display=swap");
 
 .background {
-  background-color: #000;
+  background-color: red;
 }
 
-.mt10{
+.mt10 {
   margin-top: 10px;
 }
 
-.mt30{
+.mt30 {
   margin-top: 30px;
 }
 /*PÁGINA UM*/
 
-.proposta { 
-  text-shadow: #000 2px 1px 0;
-  letter-spacing: 24px;
-  color: #FFF2CC;
-  bottom: 170px;
-  left: 550px;
-  font-weight: 100;
-  font-family: "Figtree";
-  font-size: 80px;
-  position: absolute;
-}
+.page {
 
-#page-one {
-  margin-top: 10px;
-}
-
-#logo-pg-one {
-  position: relative;
-  top: 130px;
-  width: 400px;
-  height: 280px;
-}
-
-.left-page-one {
-  display: flex;
-  width: 40%;
-  height: 820px;
-  background-color: #faf8dc;
-}
-
-.right-page-one {
-  display: flex;
-}
-
-.info-box-page-one {
-  padding: 20px;
-  z-index: 2;
-  position: absolute;
-  left: 5px;
-  top: 520px;
-  border-radius: 10px;
-  height: 180px;
-  width: 420px;
-  background-color: #fff;
-  box-shadow: 5px 3px 3px 0px rgba(0, 0, 0, 0.5)
-}
-
-.left-text {
-  margin-top: 2px;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.right-text {
-  font-size: 14px;
-}
-
-.info-box-line {
-  margin-left: -20px;
-  margin-top: 10px;
-  border: 1px solid #d5c05f;
-  width: 60%;
-
-}
-
-/*PÁGINA DOIS*/
-
-.title-proposta {
-  margin-left: 80px;
-  font-family: "Figtree";
-}
-.month-proposta {
-  font-weight: 700;
-  font-family: "Figtree";
-}
-.proposta-text{ 
-   
-  font-family: "Figtree";
-}
-
-#page-two {
-  margin-top: 10px;
-}
-
-.name-proposta {
-  font-family: "Figtree";
-  font-weight: 700;
-  font-size: 22px;
-}
-.background-page-two {
+  background-color: #000;
+  height: 860px;
   width: 100%;
-  height: 1000px;
-}
-
-.info-box-page-two {
-  padding: 20px;
-  z-index: 2;
-  position: absolute;
-  left: 35px;
-  top: 965px;
-  border-radius: 10px;
-  height: 150px;
-  width: 520px;
 }

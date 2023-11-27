@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Calculator />} />
           <Route path="/calc" element={<Calculator />} />
-          <Route path="/ppt" element={<PowerPoint mes={"NOV"} />} />
+          <Route path="/ppt" element={<PowerPoint />} />
           <Route path="/fur" element={<FurnituresBody />} />
 
         </Routes>

@@ -48,6 +48,41 @@
   width: 200px;
 }
 
+.project-itens-title{ 
+  margin: 0 auto;
+}
+
+
+.selected-furniture-list h2 { 
+  margin-top: 20px;
+  margin-left: 45%;
+}
+.project-input-area{
+  margin: 0 auto; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.project-input-area input{ 
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 10px;
+  height: 50px;
+  width: 400px;
+  padding: 10px;
+}
+
+.project-input-area button{ 
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  margin: 10px;
+  height: 50px;
+  width: 400px;
+  padding: 10px;
+}
+
 @media (max-width: 500px) {
   .input-filter {
     width: 250px;

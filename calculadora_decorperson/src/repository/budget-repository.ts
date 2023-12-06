@@ -7,30 +7,44 @@ export function save(budget: BudgetDTO) {
 }
 
 export function get(): BudgetDTO | null {
-  const str = localStorage.getItem(BUDGET_KEY);
+  const dateDef = "01/01/2020";
+  const str = localStorage.getItem(BUDGET_KEY) || "";
 
   if (!str) {
-    return null;
+    const bud: BudgetDTO = {
+      id: 1,
+      monthYear: "01/01/2020",
+      clientFirstName: "",
+      clientName: "",
+      date: new Date,
+      budgetName: "",
+      projectTime: 0,
+      totalPrice: 100,
+    };
+
+    save(bud);
   }
 
   try {
     const obj = JSON.parse(str);
 
-    if (obj && typeof obj === 'object' && 'id' in obj) {
+    if (obj && typeof obj === "object" && "id" in obj) {
       const budget = new BudgetDTO(
         obj.id,
-        obj.monthYear,
-        obj.clientFirstName,
-        obj.clientName,
-        new Date(obj.date),
-        obj.budgetName,
-        obj.projectTime,
-        obj.totalPrice
+        obj.monthYear || "01/01/2020",
+        obj.clientFirstName || "",
+        obj.clientName || "",
+        new Date(obj.date) || new Date(dateDef),
+        obj.budgetName || "",
+        obj.projectTime || "",
+        obj.totalPrice || 100
       );
 
       return budget;
     } else {
-      console.error("O objeto retornado não possui uma propriedade 'id' válida.");
+      console.error(
+        "O objeto retornado não possui uma propriedade 'id' válida."
+      );
       return null;
     }
   } catch (error) {

@@ -1,22 +1,13 @@
 import "./styles.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { ProductDTO } from "../../models/product";
 import { ProductCard } from "../ProductCard";
 import * as productService from "../../services/product-service";
 import * as calcService from "../../services/calculate-service";
 import ProjectCard from "../ProjectCard";
  
- 
-
-type QueryParams = {
-  min: number;
-  max: number;
-};
 
 export function ListingBody() {
-
-
-
 
   const [productFilter, setProductFilter] = useState("");
 

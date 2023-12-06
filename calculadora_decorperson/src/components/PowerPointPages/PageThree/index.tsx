@@ -1,20 +1,20 @@
 import "./styles.css";
 import pageThreeBackGround from "../../../assets/page-3.png";
 import * as budgetService from "../../../services/budget-service";
-import { ProjectDTO, ProjectItemDTO } from "../../../models/project";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import * as projService from "../../../services/furniture-service";
-import { ContextCalcValue } from "../../../services/context-calc";
+import { ProjectDTO } from "../../../models/project";
 
-const nomeProjeto = "Eduardo Gibi Esporte Educação";
+
+
 
 export default function PageThree() {
   const bud = budgetService.getBudget();
 
-  const [proj, setProj] = useState<ProjectDTO>(projService.getProj());
+  const [proj] = useState<ProjectDTO>(projService.getProj());
 
-  const { contextCalcValue, setContextCalcValue } =
-    useContext(ContextCalcValue);
+  
+ 
 
   return (
     <div className="page">

@@ -1,5 +1,4 @@
 import "./styles.css";
-import background from "../../../assets/bg-gold.png";
 import pageFour from "../../../assets/page-4.svg"
 export default function PageFour() {
   return (

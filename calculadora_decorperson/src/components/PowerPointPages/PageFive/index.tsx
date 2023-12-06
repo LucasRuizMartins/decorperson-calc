@@ -1,5 +1,4 @@
 import "./styles.css";
-import background from "../../../assets/bg-gold.png";
 import * as budgetService from "../../../services/budget-service";
 import pageFive from "../../../assets/page-5.svg";
 import { formatDateMonth, formatPrintDate } from "../../../utils/utils";

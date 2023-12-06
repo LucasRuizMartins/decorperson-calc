@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import * as projectService from "../../services/project-service";
-import { ContextCalcValue } from "../../services/context-calc";
 import * as budgetService from "../../services/budget-service";
 
 type Props = {
@@ -14,20 +13,13 @@ type enviromentValue = {
   complexFactor: number;
 };
 
-
 export default function ProjectCard({ totalProducts }: Props) {
-
-
-
   const [totalEnviromentPrice, setTotalEnvirmentoPrice] = useState(0);
   const [factorComplexWork, setFactorComplexWork] = useState(2.5);
   const [discount, setDiscount] = useState(0);
   const [aliquota, setAliquota] = useState(0);
   const [architectComission, setArchitectComission] = useState(0);
   const [sellerComission, setSellerComission] = useState(0);
-
-  const { contextCalcValue, setContextCalcValue } =
-    useContext(ContextCalcValue);
 
   const [enviromentValue, setEnvironmentsValue] = useState<enviromentValue>({
     enviroments: 1,
@@ -42,10 +34,9 @@ export default function ProjectCard({ totalProducts }: Props) {
     const complexF = enviromentValue.complexFactor;
     const medition = enviromentValue.medition * 70.0;
     setTotalEnvirmentoPrice(enviromentsQtd * Number(complexF) + medition);
-    setContextCalcValue(totalSalePrice);
-    bud.totalPrice = totalSalePrice 
-    budgetService.saveBudget(bud)
-  }, [enviromentValue,totalEnviromentPrice,factorComplexWork]);
+    bud.totalPrice = totalSalePrice;
+    budgetService.saveBudget(bud);
+  }, [enviromentValue, totalEnviromentPrice, factorComplexWork]);
 
   function handleInputChange(event: any) {
     const value = event.target.value;
@@ -54,10 +45,7 @@ export default function ProjectCard({ totalProducts }: Props) {
   }
 
   function handleInputTaxChange(event: any) {
-  
     setFactorComplexWork(event.target.value);
- 
-    
   }
 
   function handleInputDiscountChange(event: any) {
@@ -74,7 +62,6 @@ export default function ProjectCard({ totalProducts }: Props) {
 
   function handleInputSellerChange(event: any) {
     setSellerComission(event.target.value);
-    
   }
 
   const totalSalePrice = projectService.getTotalSalePrice(
@@ -87,7 +74,7 @@ export default function ProjectCard({ totalProducts }: Props) {
       <div>
         <div className="dflex">
           <div>
-            <span className="">Ambientes :  </span>
+            <span className="">Ambientes : </span>
           </div>
           <div>
             <input

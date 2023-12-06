@@ -3,4 +3,64 @@ position: absolute;
 top: 4000px
 }
 
+.title-proposta-pg-five{
+    font-size: 20px;
+    color: #fff;
+    font-family: "Figtree";
+    font-weight: 700;
+  }
 
+.info-box-page-five{
+        padding: 20px;
+        z-index: 2;
+        position: absolute;
+        left: 5px;
+        top: 855px;
+        border-radius: 10px;
+        height: 180px;
+        width: 420px;
+           
+}
+
+.left-page-one {
+    display: flex;
+    width: 50%;
+    height: 1500px;
+    background-color: #faf8dc;
+  }
+  
+  .right-page-one {
+    display: flex;
+    height: 1020px;
+    margin-left: 20px;
+  }
+  
+  .right-text-pg-five {
+    color: #fff;
+    font-size: 14px;
+  }
+    
+  .left-text-pg-five {
+    color: #fff;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .info-box-line {
+    margin-left: -20px;
+    margin-top: 10px;
+    border: 1px solid #d5c05f;
+    width: 60%;
+  }
+  .page-one { 
+    display: flex;
+    width: 100%;
+    height: 1100px;
+  }
+
+  .month-proposta {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    font-family: "Figtree";
+  }

@@ -28,16 +28,15 @@ export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
 
   return (
     <>
-      <div className="selected-furniture-card">
-        <img className="selected-img" src={furniture.imgUrl} alt="" />
-
-        <div>
-          <p className="selected-info">{furniture.name}</p>
-        </div>
-        <div>
-          <div onClick={handleRemoveFurniture} className="remove-furniture">
-            REMOVER
+      <div className="selected-furniture-card flex">
+        <div className="selected-furniture-card-info">
+          <img className="selected-img" src={furniture.imgUrl} alt="" />
+          <div>
+            <p className="selected-info">{furniture.name}</p>
           </div>
+        </div>
+        <div onClick={handleRemoveFurniture} className="remove-furniture flex">
+          REMOVER
         </div>
       </div>
     </>

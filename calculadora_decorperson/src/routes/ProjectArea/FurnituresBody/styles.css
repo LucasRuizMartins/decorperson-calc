@@ -8,8 +8,30 @@
   width: 100%;
   height: 100%;
 }
-.selected-furniture-list{
-  
+
+.project-info-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info-area span {
+  min-width: 150px;
+  margin-right: 10px;
+  text-align: right;
+}
+.project-info-area div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-option {
+  width: 700px;
+  align-items: right;
+}
+
+.flex {
+  display: flex;
 }
 .sum_prod {
   display: flex;
@@ -48,22 +70,28 @@
   width: 200px;
 }
 
-.project-itens-title{ 
-  margin: 0 auto;
+.project-itens-title {
+}
+.furniture-selected-container {
+}
+.furniture-selected-container h2 {
+}
+.selected-furniture-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-
-.selected-furniture-list h2 { 
+.selected-furniture-list h2 {
   margin-top: 20px;
   margin-left: 45%;
 }
-.project-input-area{
-  margin: 0 auto; 
+.project-input-area {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.project-input-area input{ 
+.project-input-area input {
   font-size: 16px;
   border-radius: 8px;
   margin: 10px;
@@ -72,7 +100,7 @@
   padding: 10px;
 }
 
-.project-input-area button{ 
+.project-input-area button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
@@ -95,6 +123,4 @@
     font-size: 14px;
     height: 40px;
   }
-
-
 }

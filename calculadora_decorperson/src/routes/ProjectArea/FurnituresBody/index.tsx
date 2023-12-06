@@ -1,13 +1,14 @@
 import "./styles.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import * as furnitureService from "../../../services/furniture-service";
 import * as budgetService from "../../../services/budget-service";
 import { FurnitureCard } from "../../../components/FurnitureCard";
 import { FurnitureDTO } from "../../../models/furniture";
 import { SelectedFurnitureCard } from "../../../components/SelectedFurnitureCard";
 import { BudgetDTO } from "../../../models/budget";
-import { formatDate, formatDateMonth } from "../../../utils/utils";
+import { formatDate } from "../../../utils/utils";
 import { parseISO, isValid } from "date-fns";
+import { Header } from "../../../components/Header";
 
 type QueryParams = {
   min: number;
@@ -87,51 +88,80 @@ export function FurnituresBody() {
   function handleNewProject(newProject: any) {
     setProj(newProject);
   }
-
+  const openPDF = () => {
+    window.open("/ppt", "_blank");
+  };
   return (
     <>
-      <div>
+      <Header />
+      <div className="project-info-area">
         <form className="project-input-area" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="clientFirstName"
-            value={formData.clientFirstName}
-            onChange={handleInputChange}
-            placeholder="primeiro nome cliente"
-          />
-          <input
-            type="text"
-            name="clientName"
-            value={formData.clientName}
-            onChange={handleInputChange}
-            placeholder="nome cliente"
-          />
-          <input
-            type="text"
-            name="budgetName"
-            value={formData.budgetName}
-            onChange={handleInputChange}
-            placeholder="nome orçamento"
-          />
-          <input
-            type="text"
-            name="projectTime"
-            value={formData.projectTime}
-            onChange={handleInputChange}
-            placeholder="tempo do projeto"
-          />
-          <input
-            type="date"
-            name="date"
-            value={formatDate(formatedDate)}
-            onChange={handleDateChange}
-            placeholder="data"
-          />
-          <button type="submit">Salvar</button>
-        </form>
+          <div>
+            <span>Nome</span>
+            <input
+              className="input-option"
+              type="text"
+              name="clientFirstName"
+              value={formData.clientFirstName}
+              onChange={handleInputChange}
+              placeholder="nome cliente"
+            />
+          </div>
 
+          <div>
+            <span>Primeiro Nome :</span>
+            <input
+              type="text"
+              name="clientName"
+              value={formData.clientName}
+              onChange={handleInputChange}
+              placeholder="nome cliente"
+            />
+          </div>
+
+          <div>
+            <span>Nome Orçamento :</span>
+            <input
+              type="text"
+              name="budgetName"
+              value={formData.budgetName}
+              onChange={handleInputChange}
+              placeholder="nome orçamento"
+            />
+          </div>
+
+          <div>
+            <span>tempo de projeto : </span>
+            <input
+              type="text"
+              name="projectTime"
+              value={formData.projectTime}
+              onChange={handleInputChange}
+              placeholder="tempo do projeto"
+            />
+          </div>
+
+          <div>
+            <span>data do projeto :</span>
+            <input
+              type="date"
+              name="date"
+              value={formatDate(formatedDate)}
+              onChange={handleDateChange}
+              placeholder="data"
+            />
+          </div>
+          <div>
+            <button type="submit">Salvar</button>
+            <button onClick={() => openPDF()}>Gerar PDF</button>
+          </div>
+        </form>
+      </div>
+      <h2 className="center-title">itens do projeto </h2>
+
+      <div className="furniture-selected-container">
+ 
         <div className="selected-furniture-list">
-          <h2>itens do projeto </h2>
           {proj.items
             .slice()
             .sort((a, b) => a.name.toLowerCase().localeCompare(b.name))
@@ -145,7 +175,7 @@ export function FurnituresBody() {
         </div>
       </div>
 
-      <div className="card-list">
+      <div className="">
         {furnitures
           .slice()
           .sort((a, b) => a.name.toLowerCase().localeCompare(b.name))

@@ -7,18 +7,7 @@
     height: 280px;
   }
   
-  .left-page-one {
-    display: flex;
-    width: 50%;
-    height: 1500px;
-    background-color: #faf8dc;
-  }
-  
-  .right-page-one {
-    display: flex;
-    height: 1020px;
-    margin-left: 20px;
-  }
+ 
   
   .info-box-page-one {
     padding: 20px;
@@ -33,6 +22,18 @@
     box-shadow: 5px 3px 3px 0px rgba(0, 0, 0, 0.5);
   }
 
+  .left-page-one {
+    display: flex;
+    width: 50%;
+    height: 1500px;
+    background-color: #faf8dc;
+  }
+  
+  .right-page-one {
+    display: flex;
+    height: 1020px;
+    margin-left: 20px;
+  }
   
   .right-text {
     font-size: 14px;

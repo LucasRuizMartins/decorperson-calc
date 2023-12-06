@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./styles.css";
 import { useState, useEffect } from "react";
 import { ProductDTO } from "../../models/product";
@@ -29,7 +30,7 @@ export function ListingBody() {
     setProductFilter(value);
   }
 
-  function handleClear(event: any) {
+  function handleClear() {
     calcService.clear();
   }
 

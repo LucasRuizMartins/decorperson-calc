@@ -1,12 +1,11 @@
 import { BudgetDTO } from "../models/budget";
-import { ProjectDTO, ProjectItemDTO } from "../models/project";
 import * as budgetRepository from "../repository/budget-repository";
 
 export function saveBudget(bud: BudgetDTO) {
   budgetRepository.save(bud);
 }
 
-export function getBudget(): BudgetDTO | null {
+export function getBudget(): BudgetDTO {
   return budgetRepository.get();
 }
 

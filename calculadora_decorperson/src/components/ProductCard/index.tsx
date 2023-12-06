@@ -1,23 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { ProductDTO } from "../../models/product";
 import "./styles.css";
-import * as productService from "../../services/product-service";
 import * as calcService from "../../services/calculate-service";
 import { OrderDTO } from "../../models/order";
 
 type Props = {
   product: ProductDTO;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onCalc: Function;
 };
 
 export function ProductCard({ product, onCalc }: Props) {
-
   const [totalPrice, setTotalPrice] = useState(0);
 
   const [productQtd, setProductQtd] = useState(
     calcService.getProductQtd(product.id) || 0
   );
-  const [calc, setCalc] = useState<OrderDTO>(calcService.getCalc);
+  const [, setCalc] = useState<OrderDTO>(calcService.getCalc);
 
   useEffect(() => {
     const newCalc = calcService.getCalc();
@@ -31,18 +31,18 @@ export function ProductCard({ product, onCalc }: Props) {
     const newQtd = Number(event.target.value);
     setProductQtd(newQtd);
     setCalc(newCalc);
-    calcService.selectItemQtd(product,  Number(event.target.value));
+    calcService.selectItemQtd(product, Number(event.target.value));
     onCalc(newCalc);
   }
 
-  function handleIncreaseProduct(event: any) {
+  function handleIncreaseProduct() {
     const newCalc = calcService.getCalc();
     setProductQtd(productQtd + 1);
     setCalc(newCalc);
     calcService.addProduct(product);
     onCalc(newCalc);
   }
-  function handleDecreaseProduct(event: any) {
+  function handleDecreaseProduct() {
     const newCalc = calcService.getCalc();
     if (productQtd >= 1) {
       setProductQtd(productQtd - 1);
@@ -67,7 +67,7 @@ export function ProductCard({ product, onCalc }: Props) {
         <div className="quantity-container">
           <div
             className="item-quantity-btn"
-            onClick={() => handleDecreaseProduct(product.id)}
+            onClick={() => handleDecreaseProduct()}
           >
             -
           </div>
@@ -80,7 +80,7 @@ export function ProductCard({ product, onCalc }: Props) {
           />
           <div
             className="item-quantity-btn"
-            onClick={() => handleIncreaseProduct(product.id)}
+            onClick={() => handleIncreaseProduct()}
           >
             +
           </div>

@@ -6,7 +6,7 @@ import { ProjectDTO } from "../../models/project";
 
 type Props = {
   furniture: FurnitureDTO;
-  onNewProject: Function;
+  onNewProject: (proj: ProjectDTO) => void;
 };
 
 export function FurnitureCard({ furniture, onNewProject }: Props) {
@@ -18,7 +18,7 @@ export function FurnitureCard({ furniture, onNewProject }: Props) {
     onNewProject(newProj);
   }, [proj]);
 
-  function handleAddFurniture(event: any) {
+  function handleAddFurniture() {
     const newProj = projService.getProj();
     projService.addFurniture(furniture);
     setProj(newProj);

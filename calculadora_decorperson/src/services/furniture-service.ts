@@ -79,7 +79,7 @@ const furnitures: FurnitureDTO[] = [
     length: 500,
     height: 500,
     width: 400,
-    imgUrl:"https://static.mobly.com.br/p/Completa-MC3B3veis-Mesa-de-Cabeceira-Jandira-1-GV-Oak-6591-622698-1-zoom.jpg",
+    imgUrl:
+      "https://static.mobly.com.br/p/Completa-MC3B3veis-Mesa-de-Cabeceira-Jandira-1-GV-Oak-6591-622698-1-zoom.jpg",
   },
 ];
-

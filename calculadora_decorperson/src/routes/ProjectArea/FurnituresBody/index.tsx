@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./styles.css";
 import { useState, useEffect } from "react";
 import * as furnitureService from "../../../services/furniture-service";
@@ -10,14 +11,10 @@ import { formatDate } from "../../../utils/utils";
 import { parseISO, isValid } from "date-fns";
 import { Header } from "../../../components/Header";
 
-type QueryParams = {
-  min: number;
-  max: number;
-};
 
 export function FurnituresBody() {
-  const [bud, setBud] = useState(budgetService.getBudget());
-  const [fornitureFilter, setFurnitureFilter] = useState("");
+  const [bud] = useState(budgetService.getBudget());
+  const [fornitureFilter] = useState("");
   const [proj, setProj] = useState(furnitureService.getProj());
   const [furnitures, setfurnitures] = useState<FurnitureDTO[]>([]);
   const [formatedDate, setFormatedDate] = useState<Date>(bud?.date);
@@ -26,7 +23,7 @@ export function FurnituresBody() {
     budgetName: "",
     clientFirstName: "",
     clientName: "",
-    date: bud?.date | new Date(),
+    date: bud?.date || new Date(),
     id: 1,
     monthYear: "",
     totalPrice: 0,

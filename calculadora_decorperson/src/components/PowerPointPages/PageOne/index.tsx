@@ -2,7 +2,7 @@ import logoPageOne from "../../../assets/logo-decorperson-rebrand.png";
 import rightPgOne from "../../../assets/right-page-one.png";
 import "./styles.css";
 import * as budgetService from "../../../services/budget-service";
-import { formatDate, formatDateMonth, formatPrintDate } from "../../../utils/utils";
+import {  formatDateMonth, formatPrintDate } from "../../../utils/utils";
 
 export default function PageOne() {
   const bud = budgetService.getBudget();

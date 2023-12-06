@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { useEffect, useState } from "react";
 import "./styles.css";
 import * as projService from "../../services/furniture-service";
-import { ProjectDTO } from "../../models/project";
-import { FurnitureDTO } from "../../models/furniture";
+import { ProjectDTO, ProjectItemDTO } from "../../models/project";
+
 
 type Props = {
-  furniture: FurnitureDTO;
+  furniture: ProjectItemDTO;
   onNewProject: Function;
 };
 
@@ -17,7 +18,7 @@ export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
     onNewProject(newProj);
   }, [proj]);
 
-  function handleRemoveFurniture(event: any) {
+  function handleRemoveFurniture() {
     const newProj = projService.getProj();
     projService.removeFurniture(furniture);
 

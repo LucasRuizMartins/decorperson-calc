@@ -8,16 +8,12 @@ import * as budgetService from "../../services/budget-service";
 import PageFour from "../../components/PowerPointPages/PageFour";
 import PageFive from "../../components/PowerPointPages/PageFive";
 
-
 export default function PowerPoint() {
   const quantidade = 1;
   const bud = budgetService.getBudget();
 
   return (
     <div className="" id="pptId">
-
-
-
       <div className="page">
         <PageOne />
       </div>

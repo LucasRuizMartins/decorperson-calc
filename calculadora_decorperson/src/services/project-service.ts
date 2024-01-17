@@ -2,9 +2,10 @@ export function getTotalSalePrice(
   totalPriceProduct: number,
   factorComplexWork: number,
   discount: number
+
+
 ) {
   discount = totalPriceProduct * factorComplexWork * (discount / 100);
-
   return totalPriceProduct * factorComplexWork - discount;
 }
 

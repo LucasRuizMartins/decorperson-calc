@@ -3,12 +3,17 @@ import "./styles.css";
 import { useState, useEffect } from "react";
 import { ProductDTO } from "../../models/product";
 import { ProductCard } from "../ProductCard";
-import * as productService from "../../services/product-service";
+import * as productService from "../../services/product-service"
 import * as calcService from "../../services/calculate-service";
 import ProjectCard from "../ProjectCard";
+import { useParams } from "react-router-dom";
  
 
 export function ListingBody() {
+
+  //parametro de requisição 
+  const params = useParams();
+
 
   const [productFilter, setProductFilter] = useState("");
 
@@ -19,14 +24,17 @@ export function ListingBody() {
   function handleUpdateCalc(newCalc: any) {
     setCalc(newCalc);
   }
-
   useEffect(() => {
-    setProducts(productService.findProductByName(productFilter));
+    productService.findProductByName(productFilter).then(response =>{ 
+      setProducts(response.data.content)
+    })
+    //setProducts(productService.findProductByName(productFilter));
   }, [productFilter]);
+
+
 
   function handleChange(event: any) {
     const value = event.target.value;
-
     setProductFilter(value);
   }
 

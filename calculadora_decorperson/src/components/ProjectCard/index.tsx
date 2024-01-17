@@ -39,6 +39,8 @@ export default function ProjectCard({ totalProducts }: Props) {
     budgetService.saveBudget(bud);
   }, [enviromentValue, totalEnviromentPrice, factorComplexWork]);
 
+
+
   function handleInputChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
@@ -70,6 +72,9 @@ export default function ProjectCard({ totalProducts }: Props) {
     Number(factorComplexWork),
     Number(discount)
   );
+
+
+
   return (
     <div className="project-area">
       <div>
@@ -233,20 +238,24 @@ export default function ProjectCard({ totalProducts }: Props) {
       <div className="values-container">
         <p id="enviroment-total-price" className="info-label">
           {`Valor dos ambientes  R$ : `}
-          {` ${totalEnviromentPrice.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-          })} `}
+          {totalEnviromentPrice !== undefined && !isNaN(totalEnviromentPrice) && (
+            ` ${totalEnviromentPrice.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })} `
+          )}
         </p>
 
         <span id="complex-total-price" className="info-label">
           Valor da venda - R$ :{" "}
-          {totalSalePrice.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-          })}
+          {totalSalePrice !== undefined && !isNaN(totalSalePrice) && (
+            totalSalePrice.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+            })
+          )}
         </span>
 
         <p id="gross-profit-value" className="info-label">
@@ -265,11 +274,13 @@ export default function ProjectCard({ totalProducts }: Props) {
               minimumFractionDigits: 2,
             })}
         </p>
-        <span className="info-label red-value">
-          {` Total em materia Prima  R$ : ${totalProducts.toLocaleString(
+   
+        <span className="info-label red-value"> 
+
+          {` Total em materia Prima  : ${totalProducts !== undefined ? totalProducts.toLocaleString(
             "pt-BR",
             { style: "currency", currency: "BRL", minimumFractionDigits: 2 }
-          )}`}
+          ) : ''}`}
         </span>
 
         <label htmlFor="aliquotaValue" className="info-label red-value">

@@ -4,7 +4,9 @@ import { ProductDTO } from "../../models/product";
 import "./styles.css";
 import * as calcService from "../../services/calculate-service";
 import { OrderDTO } from "../../models/order";
-
+import editIcon from "../../assets/edit.svg";
+import deleteIcon from "../../assets/delete.svg";
+import { useNavigate } from "react-router-dom";
 type Props = {
   product: ProductDTO;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -12,6 +14,9 @@ type Props = {
 };
 
 export function ProductCard({ product, onCalc }: Props) {
+
+  const navigate = useNavigate();
+
   const [totalPrice, setTotalPrice] = useState(0);
 
   const [productQtd, setProductQtd] = useState(
@@ -52,6 +57,19 @@ export function ProductCard({ product, onCalc }: Props) {
     onCalc(newCalc);
   }
 
+  function handleUpdateClick(productId:number) {
+    navigate(`/calc/products/${Number(productId)}`)
+
+  }
+
+  function handleDeleteClick(productId:number) {
+
+    navigate(`/calc/delete/${Number(productId)}`)
+
+  }
+
+  
+
   return (
     <>
       <div className="product-card">
@@ -89,6 +107,21 @@ export function ProductCard({ product, onCalc }: Props) {
           total <br />
           {totalPrice.toFixed(2)}
         </p>
+
+        <div className="edit-icon-container">
+          <img
+            onClick={()=> handleUpdateClick(product.id)}
+            className="dsc-product-listing-btn"
+            src={editIcon}
+            alt="Editar"
+          />
+          <img
+               onClick={()=> handleDeleteClick(product.id)}
+            className="dsc-product-listing-btn"
+            src={deleteIcon}
+            alt="Deletar"
+          />
+        </div>
       </div>
     </>
   );

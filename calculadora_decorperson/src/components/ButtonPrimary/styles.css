@@ -1,0 +1,5 @@
+.decp-btn-blue {
+    border: none;
+    background-color: var(--decp-color-btn-primary);
+    color: var(--decp-color-btn-inverse);
+  }

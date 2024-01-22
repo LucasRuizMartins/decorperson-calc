@@ -22,7 +22,7 @@ export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
     const newProj = projService.getProj();
     projService.removeFurniture(furniture);
 
-    console.log(furniture);
+ 
     setProj(newProj);
     onNewProject(newProj);
   }

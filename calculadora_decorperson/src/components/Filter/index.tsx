@@ -31,7 +31,7 @@ export function Filter({ onSearch }: Props) {
 
   return (
     <>
-      <div className="dsf-container">
+      <div className="decp-container">
         <div className="filter-card">
           <form>
             <div>

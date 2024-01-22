@@ -3,18 +3,13 @@ import "./styles.css";
 import { useState, useEffect } from "react";
 import { ProductDTO } from "../../models/product";
 import { ProductCard } from "../ProductCard";
-import * as productService from "../../services/product-service"
+import * as productService from "../../services/product-service";
 import * as calcService from "../../services/calculate-service";
 import ProjectCard from "../ProjectCard";
-import { useParams } from "react-router-dom";
- 
+import { useNavigate } from "react-router-dom";
 
 export function ListingBody() {
-
-  //parametro de requisição 
-  const params = useParams();
-
-
+  const navigate = useNavigate();
   const [productFilter, setProductFilter] = useState("");
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
@@ -25,36 +20,42 @@ export function ListingBody() {
     setCalc(newCalc);
   }
   useEffect(() => {
-    productService.findProductByName(productFilter).then(response =>{ 
-      setProducts(response.data.content)
-    })
+    productService.findProductByName(productFilter).then((response) => {
+      setProducts(response.data.content);
+    });
     //setProducts(productService.findProductByName(productFilter));
   }, [productFilter]);
 
-
+  useEffect(() => {
+    productService.findProductByName(productFilter).then((response) => {
+      setProducts(response.data.content);
+    });
+  });
 
   function handleChange(event: any) {
     const value = event.target.value;
     setProductFilter(value);
   }
 
+  function handleInsertItem() {
+    navigate("/calc/novoItem");
+  }
   function handleClear() {
     calcService.clear();
   }
 
   return (
     <>
-      <div className="dsf-container">
+      <div className="decp-container">
         <div className="center-title">
           <h2>Projeto</h2>
-      
         </div>
 
         <ProjectCard totalProducts={calc.total} />
         <div className="center-title">
           <h2>Matéria Prima</h2>
         </div>
-        <div className="dsf-container">
+        <div className="decp-container">
           <form className="filter-card">
             <input
               name="productFilter"
@@ -64,7 +65,10 @@ export function ListingBody() {
               placeholder="digite o nome do produto desejado"
               onChange={handleChange}
             />
-            <button className="btn-clear" onClick={handleClear}>
+            <div className="btn new-item" onClick={handleInsertItem}>
+              Novo
+            </div>
+            <button className="btn clear" onClick={handleClear}>
               Limpar
             </button>
           </form>

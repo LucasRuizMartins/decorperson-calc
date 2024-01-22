@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&family=Poppins:ital,wght@0,100;0,400;0,700;1,100&family=Roboto:wght@100;300;400;700&display=swap");
 
 :root {
-  --dsf-color-bg-primary: #c2c2c2;
-  --dsf-color-bg-secondary: #55bc04;
-  --dsf-color-bg-tertiary: #ffe9aa;
+  --decp-color-bg-primary: #c2c2c2;
+  --decp-color-bg-secondary: #55bc04;
+  --decp-color-bg-tertiary: #ffe9aa;
 
 
-  --dsf-color-card-bg: #fff;
-  --dsf-color-card-border: #d9d9d9;
+  --decp-color-card-bg: #fff;
+  --decp-color-card-border: #d9d9d9;
 
-  --dsf-color-btn-primary: #3483fa;
-  --dsf-color-btn-inverse: #fff;
+  --decp-color-btn-primary: #3483fa;
+  --decp-color-btn-inverse: #fff;
 
-  --dsf-color-font-primary: #636363;
-  --dsf-color-font-secondary: #fff;
-  --dsf-color-font-tertiary: #C2C2C2;
-  --dsf-color-font-quaternary: #000;
-  --dsf-color-font-quintenary: #55bc04;
+  --decp-color-font-primary: #636363;
+  --decp-color-font-secondary: #fff;
+  --decp-color-font-tertiary: #C2C2C2;
+  --decp-color-font-quaternary: #000;
+  --decp-color-font-quintenary: #55bc04;
 }
 
 * {
@@ -41,8 +41,75 @@ main {
   padding: 0 20px;
 }
 
-.dsf-container {
+.decp-container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+}
+
+
+/* ------------------  */
+/* BTN */
+
+
+.decp-btn {
+  width: 100%;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/*-----------------------------------------------------------------*/
+/* Dialog styles */
+
+.decp-dialog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+}
+
+
+.delete-bg{
+  background-color: rgba( 333,100, 100, 1.5);
+}
+
+.update-bg{
+  background-color: rgba( 000,100, 10, 0.5);
+}
+.decp-dialog-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--decp-color-card-bg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.decp-dialog-box h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.decp-dialog-btn-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+.decp-dialog-btn {
+  width: 100%;
 }

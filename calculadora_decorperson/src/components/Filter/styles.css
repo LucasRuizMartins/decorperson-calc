@@ -1,5 +1,5 @@
 .filter-card {
-  background-color: var(--dsf-color-card-bg);
+  background-color: var(--decp-color-card-bg);
   width: 100%;
   border-radius: 5px;
   height: 200px;
@@ -17,9 +17,9 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  background-color: var(--dsf-color-bg-secondary);
+  background-color: var(--decp-color-bg-secondary);
   font-weight: 400;
-  color: var(--dsf-color-font-secondary);
+  color: var(--decp-color-font-secondary);
   cursor: pointer;
 }
 
@@ -32,5 +32,5 @@
 
 .input-filter::placeholder {
   font-size: 16px;
-  color: var(--dsf-color-font-tertiary);
+  color: var(--decp-color-font-tertiary);
 }

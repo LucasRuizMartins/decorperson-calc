@@ -1,0 +1,21 @@
+.delete-dialog-info {
+margin: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.delete-dialog-info p{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.update-input-value {
+    width: 450px;
+    height: 35px;
+    font-size: 24px;
+    padding: 15px;
+    border: 0px solid #999;
+    text-align: center;
+
+}

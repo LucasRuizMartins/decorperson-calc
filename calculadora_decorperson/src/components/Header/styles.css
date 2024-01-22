@@ -4,8 +4,8 @@
   justify-content: space-between;
   width: 100%;
   height: 70px;
-  background-color: var(--dsf-color-bg-tertiary);
-  color: var(--dsf-color-font-quaternary);
+  background-color: var(--decp-color-bg-tertiary);
+  color: var(--decp-color-font-quaternary);
 }
 
 .logo {

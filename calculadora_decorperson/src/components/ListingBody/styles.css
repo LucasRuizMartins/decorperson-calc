@@ -35,15 +35,26 @@
   align-items: center;
   justify-content: center;
 }
-
-.btn-clear {
+.btn {
   border-radius: 8px;
   cursor: pointer;
   font-size: 20px;
   font-weight: 700;
-  background-color: yellow;
   height: 50px;
-  width: 200px;
+  width: 100px;
+  margin: 15px;
+  border: solid 2px #000 ;
+}
+.clear {
+  background-color: yellow;
+}
+.new-item {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  background-color: greenyellow;
 }
 
 @media (max-width: 500px) {
@@ -58,6 +69,4 @@
     font-size: 14px;
     height: 40px;
   }
-
-
 }

@@ -23,14 +23,14 @@ export function ListingBody() {
     productService.findProductByName(productFilter).then((response) => {
       setProducts(response.data.content);
     });
-    //setProducts(productService.findProductByName(productFilter));
   }, [productFilter]);
 
   useEffect(() => {
     productService.findProductByName(productFilter).then((response) => {
       setProducts(response.data.content);
+ 
     });
-  });
+  }, [calc]);
 
   function handleChange(event: any) {
     const value = event.target.value;

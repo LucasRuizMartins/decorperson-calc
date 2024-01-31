@@ -10,7 +10,7 @@ export function Header() {
         <div className="">
           <NavLink
             to={"/calc"}
-            className={({ isActive }) =>
+                className={({ isActive }) =>
               isActive ? "dsc-menu-item-active" : ""
             }
           >
@@ -23,6 +23,16 @@ export function Header() {
             }
           >
             Projeto{" "}
+          </NavLink>
+
+
+          <NavLink
+            to={"/proj"}
+            className={({ isActive }) =>
+              isActive ? "dsc-menu-item-active" : ""
+            }
+          >
+            histórico{" "}
           </NavLink>
         </div>
       </div>

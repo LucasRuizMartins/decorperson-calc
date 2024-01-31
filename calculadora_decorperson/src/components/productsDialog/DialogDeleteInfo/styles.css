@@ -1,0 +1,11 @@
+.delete-dialog-info {
+margin: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.delete-dialog-info p{
+    font-size: 18px;
+    margin: 10px;
+}

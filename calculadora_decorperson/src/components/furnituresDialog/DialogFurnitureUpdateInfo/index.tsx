@@ -1,21 +1,21 @@
-import ButtonInverse from "../ButtonInverse";
-import ButtonPrimary from "../ButtonPrimary";
-import * as productService from "../../services/product-service";
-import { ProductDTO } from "../../models/product";
+import ButtonInverse from "../../ButtonInverse";
+import ButtonPrimary from "../../ButtonPrimary";
+import * as furnitureService from "../../../services/furniture-service";
+import { FurnitureDTO } from "../../../models/furniture";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 
-export default function DialogUpdateInfo() {
+export default function DialogFurnitureUpdateInfo() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [prod, setProd] = useState<ProductDTO>();
+  const [furniture, setProd] = useState<FurnitureDTO>();
 
-  const [formData, setFormData] = useState<ProductDTO>();
+  const [formData, setFormData] = useState<FurnitureDTO>();
 
   useEffect(() => {
-    productService.findById(Number(params.productId)).then((response) => {
+    furnitureService.findById(Number(params.furnitureId)).then((response) => {
       setProd(response.data);
       setFormData(response.data);
     });
@@ -27,18 +27,18 @@ export default function DialogUpdateInfo() {
 
   function handleUpdateClick() {
     const result = confirm(
-      `Você tem certeza que deseja atualizar os dados do ${prod?.name}?`
+      `Você tem certeza que deseja atualizar os dados do ${furniture?.name}?`
     );
     if (result) {
-      prod ? productService.updateRequest(prod) : navigate("/calc");
-      navigate("/calc");
+      furniture ? furnitureService.updateRequest(furniture) : navigate("/fur");
+      navigate("/fur");
     } else {
-      navigate("/calc");
+      navigate("/fur");
     }
   }
 
   function handleCancelClick() {
-    navigate("/calc");
+    navigate("/fur");
   }
 
   function handleInputChange(event: any) {
@@ -55,9 +55,9 @@ export default function DialogUpdateInfo() {
         className="decp-dialog-box"
         onClick={(event) => event.stopPropagation()}
       >
-        <h2> Deseja atualizar o valor do produto ? </h2>
+        <h2> Deseja atualizar os dados do móvel ? </h2>
         <div className="delete-dialog-info">
-          <img className="product_img" src={prod?.imgUrl}></img>
+          <img className="product_img" src={furniture?.imgUrl}></img>
 
           <div>
             {" "}
@@ -77,8 +77,32 @@ export default function DialogUpdateInfo() {
             <input
               type="text"
               className="update-input-value"
-              value={formData ? formData.price : 0}
-              name="price"
+              value={formData ? formData.height : 0}
+              name="height"
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            {" "}
+            <span></span>
+            <input
+              type="text"
+              className="update-input-value"
+              value={formData ? formData.width : 0}
+              name="width"
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            {" "}
+            <span></span>
+            <input
+              type="text"
+              className="update-input-value"
+              value={formData ? formData.length : 0}
+              name="length"
               onChange={handleInputChange}
             />
           </div>

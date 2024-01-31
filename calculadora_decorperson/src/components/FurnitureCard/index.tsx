@@ -3,6 +3,9 @@ import "./styles.css";
 import { FurnitureDTO } from "../../models/furniture";
 import * as projService from "../../services/furniture-service";
 import { ProjectDTO } from "../../models/project";
+import editIcon from "../../assets/edit.svg";
+import deleteIcon from "../../assets/delete.svg";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   furniture: FurnitureDTO;
@@ -10,7 +13,9 @@ type Props = {
 };
 
 export function FurnitureCard({ furniture, onNewProject }: Props) {
-  
+
+  const navigate = useNavigate();
+
   const [proj, setProj] = useState<ProjectDTO>(projService.getProj());
 
   useEffect(() => {
@@ -19,10 +24,27 @@ export function FurnitureCard({ furniture, onNewProject }: Props) {
   }, [proj]);
 
   function handleAddFurniture() {
-    const newProj = projService.getProj();
-    projService.addFurniture(furniture);
-    setProj(newProj);
-    onNewProject(newProj);
+    const isFurniturePresent = projService.checkFurniture(furniture);
+
+    if (!isFurniturePresent) {
+      const newProj = projService.getProj();
+      projService.addFurniture(furniture);
+      setProj(newProj);
+      onNewProject(newProj);
+    }
+    else {projService.removeFurniture(furniture)
+      const newProj = projService.getProj();
+      onNewProject(newProj);
+     
+    }
+  }
+
+  function handleUpdateClick(furnitureId: number) {
+    navigate(`/fur/furnitures/${Number(furnitureId)}`);
+  }
+
+  function handleDeleteClick(furnitureId: number) {
+    navigate(`/fur/delete/${Number(furnitureId)}`);
   }
 
   return (
@@ -36,9 +58,28 @@ export function FurnitureCard({ furniture, onNewProject }: Props) {
           <p className="furniture-info">Altura: {furniture.height} mm</p>
           <p className="furniture-info">Largura: {furniture.width} mm</p>
         </div>
-        <div>
+
+        <div className="right-furniturecard-container">
+          <div className="edit-icon-container">
+            <img
+              onClick={() => handleUpdateClick(furniture.id)}
+              className="dsc-furniture-listing-btn"
+              src={editIcon}
+              alt="Editar"
+            />
+          </div>
+
+          <div className="edit-icon-container">
+            <img
+              onClick={() => handleDeleteClick(furniture.id)}
+              className="dsc-furniture-listing-btn"
+              src={deleteIcon}
+              alt="Deletar"
+            />
+          </div>
+
           <div onClick={handleAddFurniture} className="add-furniture">
-            ADICIONAR
+            {projService.checkFurniture(furniture) ? "REMOVER" : "ADICIONAR"}
           </div>
         </div>
       </div>

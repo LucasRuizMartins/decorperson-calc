@@ -7,6 +7,7 @@
 .selected-furniture-card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 450px;
   height: 200px;
   margin: 0 auto;
@@ -17,24 +18,27 @@
   text-align: center;
 }
 .selected-info {
-  width: 100%;
+  width: 400px;
   font-family: "Figtree";
   margin-top: 5px;
   font-size: 15px;
 }
 
 .remove-furniture {
+  margin-top: -95px;
+  
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   cursor: pointer;
   background-color: var(--decp-color-bg-primary);
-  border-radius: 8px;
-  border: 1px ed solid;
-  width: 80%;
-  height: 25px;
+  border-radius: 25px;
+  border: 1px solid #000;
+  width: 30px;
+  height: 30px;
   font-weight: 700;
+  
 }
 
 .flex {

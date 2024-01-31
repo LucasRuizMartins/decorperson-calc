@@ -1,7 +1,7 @@
-import ButtonInverse from "../ButtonInverse";
-import ButtonPrimary from "../ButtonPrimary";
-import * as productService from "../../services/product-service";
-import { ProductDTO } from "../../models/product";
+import ButtonInverse from "../../ButtonInverse";
+import ButtonPrimary from "../../ButtonPrimary";
+import * as productService from "../../../services/product-service";
+import { ProductDTO } from "../../../models/product";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";

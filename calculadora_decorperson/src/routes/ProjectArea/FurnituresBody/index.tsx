@@ -10,11 +10,12 @@ import { BudgetDTO } from "../../../models/budget";
 import { formatDate } from "../../../utils/utils";
 import { parseISO, isValid } from "date-fns";
 import { Header } from "../../../components/Header";
-
+import ButtonPrimary from "../../../components/ButtonPrimary";
+import { useNavigate } from "react-router-dom";
 
 export function FurnituresBody() {
+  const navigate = useNavigate();
   const [bud] = useState(budgetService.getBudget());
-  const [fornitureFilter] = useState("");
   const [proj, setProj] = useState(furnitureService.getProj());
   const [furnitures, setfurnitures] = useState<FurnitureDTO[]>([]);
   const [formatedDate, setFormatedDate] = useState<Date>(bud?.date);
@@ -44,8 +45,11 @@ export function FurnituresBody() {
   }, [bud, setFormatedDate]);
 
   useEffect(() => {
-    setfurnitures(furnitureService.findFurnitureByName(fornitureFilter));
-  }, [fornitureFilter, proj]);
+    furnitureService.findAll().then((response) => {
+      setfurnitures(response.data.content);
+    });
+  }, [proj]);
+
   useEffect(() => {
     async function saveBudgetAndUpdate() {
       await budgetService.saveBudget(formData);
@@ -78,8 +82,11 @@ export function FurnituresBody() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormData((formData) => ({ ...formData, date: formatedDate }));
-
     await budgetService.saveBudget(formData);
+  }
+
+  function handleInsertItem(){
+    navigate("/fur/novoItem");
   }
 
   function handleNewProject(newProject: any) {
@@ -156,8 +163,10 @@ export function FurnituresBody() {
       </div>
       <h2 className="center-title">itens do projeto </h2>
 
+
+
       <div className="furniture-selected-container">
- 
+        
         <div className="selected-furniture-list">
           {proj.items
             .slice()
@@ -171,7 +180,9 @@ export function FurnituresBody() {
             ))}
         </div>
       </div>
-
+      <div className="btn-container" onClick={handleInsertItem}>
+        <ButtonPrimary nameButton={"Novo móvel"} />
+      </div>
       <div className="">
         {furnitures
           .slice()

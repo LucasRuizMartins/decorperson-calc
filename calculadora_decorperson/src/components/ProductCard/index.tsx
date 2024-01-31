@@ -4,9 +4,11 @@ import { ProductDTO } from "../../models/product";
 import "./styles.css";
 import * as calcService from "../../services/calculate-service";
 import { OrderDTO } from "../../models/order";
+import { useNavigate } from "react-router-dom";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
-import { useNavigate } from "react-router-dom";
+
+
 type Props = {
   product: ProductDTO;
   // eslint-disable-next-line @typescript-eslint/ban-types

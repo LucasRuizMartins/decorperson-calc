@@ -6,6 +6,7 @@
 .furniture-card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 2px solid #000;
   width: 50%;
   height: 200px;
@@ -21,7 +22,7 @@
 }
 
 .add-furniture {
-  margin-top: 150px;
+
   margin-right: 10px;
   display: flex;
   align-items: center;
@@ -33,4 +34,19 @@
   border: 1px #000 solid;
   width: 100px;
   height: 30px;
+}
+
+.right-furniturecard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150px;
+}
+
+
+.dsc-furniture-listing-btn{
+  border: 1px solid #000;
+  width: 25px;
+  border-radius: 4px;
+
 }

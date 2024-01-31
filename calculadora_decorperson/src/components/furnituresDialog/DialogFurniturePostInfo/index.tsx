@@ -1,36 +1,34 @@
-import ButtonInverse from "../ButtonInverse";
-import ButtonPrimary from "../ButtonPrimary";
-import * as productService from "../../services/product-service";
-import { ProductDTO } from "../../models/product";
+import ButtonInverse from "../../ButtonInverse";
+import ButtonPrimary from "../../ButtonPrimary";
+import * as furnitureService from "../../../services/furniture-service";
+import { FurnitureDTO } from "../../../models/furniture";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
-export default function DialogPostInfo() {
+export default function DialogFurniturePostInfo() {
   const navigate = useNavigate();
 
-  const [prod, setProd] = useState<ProductDTO>();
+  const [furniture, setProd] = useState<FurnitureDTO>();
 
-  const [formData, setFormData] = useState<ProductDTO>();
+  const [formData, setFormData] = useState<FurnitureDTO>();
 
   useEffect(() => {
     setProd(formData);
   }, [formData]);
 
   function handlePostNewItem() {
-    const result = confirm(
-      `Deseja cadastrar o item ${prod?.name}?`
-    );
+    const result = confirm(`Deseja cadastrar o item ${furniture?.name}?`);
     if (result) {
-      prod ? productService.insertRequest(prod) : navigate("/calc");
-      navigate("/calc");
+      furniture ? furnitureService.insertRequest(furniture) : navigate("/calc");
+      navigate("/fur");
     } else {
-      navigate("/calc");
+      navigate("/fur");
     }
   }
 
   function handleCancelClick() {
-    navigate("/calc");
+    navigate("/fur");
   }
 
   function handleInputChange(event: any) {
@@ -47,9 +45,9 @@ export default function DialogPostInfo() {
         className="decp-dialog-box"
         onClick={(event) => event.stopPropagation()}
       >
-        <h2>CADASTRAR NOVO PRODUTO </h2>
+        <h2>CADASTRAR NOVO MÓVEL </h2>
         <div className="delete-dialog-info">
-          <img className="product_img" src={prod?.imgUrl}></img>
+          <img className="product_img" src={furniture?.imgUrl}></img>
 
           <div>
             {" "}
@@ -65,18 +63,41 @@ export default function DialogPostInfo() {
           </div>
 
           <div>
-      
             <span></span>
             <input
               type="number"
-          
               className="update-input-value"
-              value={formData ? formData.price : ""}
-              name="price"
-              placeholder="preço"
+              value={formData ? formData.height : ""}
+              name="height"
+              placeholder="altura"
               onChange={handleInputChange}
             />
           </div>
+
+          <div>
+          <span></span>
+            <input
+              type="number"
+              className="update-input-value"
+              value={formData ? formData.length : ""}
+              name="length"
+              placeholder="comprimento"
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+          <span></span>
+            <input
+              type="number"
+              className="update-input-value"
+              value={formData ? formData.width : ""}
+              name="width"
+              placeholder="largura"
+              onChange={handleInputChange}
+            />
+          </div>
+
 
           <div>
             <span></span>

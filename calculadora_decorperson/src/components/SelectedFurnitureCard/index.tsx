@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import * as projService from "../../services/furniture-service";
 import { ProjectDTO, ProjectItemDTO } from "../../models/project";
-
+ 
 
 type Props = {
   furniture: ProjectItemDTO;
@@ -11,6 +11,8 @@ type Props = {
 };
 
 export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
+
+
   const [proj, setProj] = useState<ProjectDTO>(projService.getProj());
 
   useEffect(() => {
@@ -20,16 +22,15 @@ export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
 
   function handleRemoveFurniture() {
     const newProj = projService.getProj();
-    projService.removeFurniture(furniture);
+    projService.removeProjectWithId(furniture.furnitureId);
 
- 
     setProj(newProj);
     onNewProject(newProj);
   }
 
   return (
     <>
-      <div className="selected-furniture-card flex">
+      <div className="selected-furniture-card">
         <div className="selected-furniture-card-info">
           <img className="selected-img" src={furniture.imgUrl} alt="" />
           <div>
@@ -37,7 +38,7 @@ export function SelectedFurnitureCard({ furniture, onNewProject }: Props) {
           </div>
         </div>
         <div onClick={handleRemoveFurniture} className="remove-furniture flex">
-          REMOVER
+          X
         </div>
       </div>
     </>
